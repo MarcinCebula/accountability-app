@@ -1,26 +1,28 @@
 <div style="margin-top: 150px;"></div>
-<div class="col-xs-12">
-  <section class="content-header">
+<div class="col-xs-12 center">
+  <!--<section class="content-header">
     <h1>
       Hi, <%= current_user.name %><br>
       <small>Set Your Schedule?</small>
     </h1>
     <br>
-  </section>
+  </section>-->
+  <h2>Pick the days and time you would like to be notified</h2>
+  <p class="center">You can always change this later</p>
 </div>
 
 <div class="col-xs-12">
   <div class="box box-info">
-    <div class="box-header with-border">
+    <!--<div class="box-header with-border">
       <h3 class="box-title">Goals</h3>
-    </div>
+    </div>-->
     <!-- /.box-header -->
     <!-- form start -->
     <%= simple_form_for :user, url: registration_path(@user), method: :patch, html: {class: "form-horizontal"} do |f| %>
 
       <%= f.input :next_path, :as => :hidden, :input_html => { :value => firends_registration_index_path } %>
 
-      <div class="box-body">
+      <div class="box-body center">
         <div class="col-xs-12">
 
           <ul class="nav nav-stacked">
@@ -31,7 +33,7 @@
           <hr>
         </div>
 
-        <div class="form-group">
+        <div class="form-group center input-margin">
           <label for="inputPassword3" class="col-sm-2 control-label">Exercise Time</label>
           <div class="col-xs-6">
             <%= f.input :default_exercise_time,  as: :string, placeholder: '', input_html: { class: 'form-control timepicker' }, wrapper: false, label: false, required: true %>
@@ -40,7 +42,7 @@
         </div>
       </div>
       <!-- /.box-body -->
-      <div class="box-footer">
+      <div class="box-footer center input-margin">
         <a href="#" class="btn btn-default">back</a>
         <button type="submit" class="btn btn-info pull-right">Next</button>
       </div>

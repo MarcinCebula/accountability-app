@@ -1,21 +1,20 @@
-<div class="box-body">
+<div class="box-body center input-margin">
 
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Name</label>
+    <!--<label for="inputPassword3" class="col-sm-2 control-label">Name</label>-->
 
     <div class="col-sm-10">
-      <%= f.input :name, placeholder: 'e.g Marcin', input_html: { class: 'form-control' }, wrapper: false, label: false, required: true %>
+      <%= f.input :name, placeholder: 'Name', input_html: { class: 'form-control, phone-field' }, wrapper: false, label: false, required: true %>
 
     </div>
   </div>
 
 
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Phone Number</label>
+    <!--<label for="inputPassword3" class="col-sm-2 control-label">Phone Number</label>-->
 
-    <div class="col-sm-10">
-      <%= f.input :phone, placeholder: 'e.g 123-123-1234', input_html: { class: 'form-control' }, wrapper: false, label: false, required: true %>
-
+    <div class="col-sm-10 input-margin">
+      <%= f.input :phone, placeholder: '555-123-1234', input_html: { class: 'form-control, phone-field' }, wrapper: false, label: false, required: true %>
     </div>
   </div>
 </div>
