@@ -1,0 +1,24 @@
+
+@import 'variables';
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: #FFF;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  /*height: 100%;*/
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(to bottom right, $background-1, $background-2); 
+  background-repeat: no-repeat;
+}
+

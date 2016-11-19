@@ -11,12 +11,12 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require bootstrap
- *= require font-awesome
- *= require ionicons
- *= require admin-lte
- *= require iCheck/all
- *= require datatables/dataTables.bootstrap
+ * require bootstrap
+ * require font-awesome
+ * require ionicons
+ * require admin-lte
+ * require iCheck/all
+ * require datatables/dataTables.bootstrap
  *= jquery.timepicker
  *= require_self
  */
