@@ -26,7 +26,7 @@ class RegistrationController < ApplicationController
                                    )
           end
           sign_in(:user, @user)
-          redirect_to schedule_registration_index_path
+          redirect_to shedule_registration_index_path
 
 
         }
