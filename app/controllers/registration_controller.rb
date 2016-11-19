@@ -42,9 +42,26 @@ class RegistrationController < ApplicationController
     @user = current_user
   end
 
+  def schedule
+    @user = current_user
+  end
+
   def update
     binding.pry
-    putes 'test'
+    @user = current_user
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html {
+          flash.now['error'] =  "Thanks for setting Goals!"
+          redirect_to shedule_registration_index_path
+        }
+      else
+        format.html {
+          flash.now['error'] =  "#{@user.errors.full_messages.to_sentence}"
+          render :goals
+        }
+      end
+    end
   end
 
 
