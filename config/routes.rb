@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     get 'phone-number', as: :phonenumber, on: :collection
   end
 
+  resources :account, only: [] do
+    get 'hi', as: :hi, on: :collection
+  end
   post 'twillio/sms' => 'twillio#sms'
   root to: "registration#phone_number"
 end
