@@ -24,7 +24,7 @@ class TwillioController < ApplicationController
                                body: 'You missed your activity 2 times in a row. You friend will be notified'
                                )
 
-      User.where(phone: ).first.friends.each do |friend|
+      User.where(phone: params['From'][-2..-1]).first.friends.each do |friend|
         from: '+13472692547',
         to: "+1#{frined.phone}",
         body: "You friend didn't go to the gym 2 times. inform him"
