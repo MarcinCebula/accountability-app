@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :registration, only: [:index] do
     get 'phone-number', as: :phonenumber, on: :collection
     post 'process_phone_number', as: :process_phone_number, on: :collection
+
+    get 'goals', as: :goals, on: :collection
   end
 
   resources :account, only: [] do

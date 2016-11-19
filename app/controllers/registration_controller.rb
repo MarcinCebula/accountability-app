@@ -7,23 +7,41 @@ class RegistrationController < ApplicationController
     @user = User.new(user_params.merge(password: generated_password))
     respond_to do |format|
       if @user.save
+
         format.html {
           @twillio = Twilio::REST::Client.new
           @twillio.messages.create(
                                    from: '+13472692547',
                                    to: "+1#{@user.phone}",
-                                   body: "Thanks for joining #{APP_NAME}. You password is: #{generated_password}"                                   )
+                                   body: "Thanks for joining #{APP_NAME}. You password is: '#{generated_password}'"
+                                   )
+          sign_in(:user, @user)
+          redirect_to goals_registration_index_path
 
-          redirect_to "#{request.referer}", flash: {  success: "Thanks" }
+
         }
       else
         format.html {
-          flash.now['error'] =  "#{@blog.errors.full_messages.to_sentence}"
+          @twillio = Twilio::REST::Client.new
+          @twillio.messages.create(
+                                   from: '+13472692547',
+                                   to: "+1#{@user.phone}",
+                                   body: "You already have an account on #{APP_NAME}. Please login #{new_user_session_url}"
+                                   )
+
+
+
+          flash.now['error'] =  "#{@user.errors.full_messages.to_sentence}"
           render :phone_number
         }
       end
     end
   end
+
+  def goals
+
+  end
+
 
   def user_params
     params.require(:user).permit(

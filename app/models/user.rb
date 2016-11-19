@@ -2,10 +2,11 @@ class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :rememberable, :trackable, :lockable
+  devise :database_authenticatable, :rememberable, :trackable
 
   validates :phone, length: { minimum: 2 }
   validates_uniqueness_of :phone
+  index({ phone: 1 } , { unique: true })
 
 
   ## Database authenticatable
