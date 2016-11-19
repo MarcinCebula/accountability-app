@@ -1,3 +1,6 @@
+require 'mongoid'
+Mongoid.load!(File.expand_path('mongoid.yml', './config'))
+
 require_relative 'boot'
 
 require "rails"
