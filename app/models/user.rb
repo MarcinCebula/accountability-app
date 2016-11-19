@@ -5,6 +5,7 @@ class User
   devise :database_authenticatable, :rememberable, :trackable, :lockable
 
   validates :phone, length: { minimum: 2 }
+  validates_uniqueness_of :phone
 
 
   ## Database authenticatable
@@ -36,4 +37,12 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+
+  before_validation do |rec|
+    rec.phone = rec.phone.parameterize.gsub('-', '')
+    if rec.phone.length == 11
+      rec.phone = rec.phone = rec.phone[1..-1]
+    end
+  end
 end

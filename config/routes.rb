@@ -5,11 +5,13 @@ Rails.application.routes.draw do
 
   resources :registration, only: [:index] do
     get 'phone-number', as: :phonenumber, on: :collection
+    post 'process_phone_number', as: :process_phone_number, on: :collection
   end
 
   resources :account, only: [] do
     get 'hi', as: :hi, on: :collection
   end
+
   post 'twillio/sms' => 'twillio#sms'
   root to: "registration#phone_number"
 end
