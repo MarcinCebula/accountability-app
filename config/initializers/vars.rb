@@ -1,2 +1,2 @@
-APP_NAME = "APP_NAME"
-REAL = false
+APP_NAME = "Accountability"
+REAL = true
