@@ -17,6 +17,8 @@ gem 'mongoid'
 
 gem 'adminlte-rails'
 gem 'simple_form'
+gem "cocoon"
+
 
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'

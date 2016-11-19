@@ -54,14 +54,18 @@ class RegistrationController < ApplicationController
     @user = current_user
   end
 
+  def friends
+    @user = current_user
+  end
+
   def update
-    binding.pry
     @user = current_user
     respond_to do |format|
       if @user.update(user_params)
         format.html {
           flash.now['error'] =  "Thanks for setting Goals!"
-          redirect_to shedule_registration_index_path
+          binding.pry
+          redirect_to params[:user][:next_path]
         }
       else
         format.html {
@@ -74,11 +78,17 @@ class RegistrationController < ApplicationController
 
 
   def user_params
+    if params[:user][:schedule].present?
+      params[:user][:schedule] = params[:user][:schedule].map(&:presence).compact
+    end
     params.require(:user).permit(
                                  :name,
                                  :phone,
                                  :starting_weight,
-                                 :target_weight
+                                 :target_weight,
+                                 :default_exercise_time,
+                                 :schedule => [],
+                                 :friends_attributes => [:name, :phone]
                                  )
   end
 end

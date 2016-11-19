@@ -1,0 +1,35 @@
+<div style="margin-top: 150px;"></div>
+<div class="col-xs-12">
+  <section class="content-header">
+    <h1>
+      Hi, <%= current_user.name %><br>
+      <small>Are friends</small>
+    </h1>
+    <br>
+  </section>
+</div>
+
+<div class="col-xs-12">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Goals</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <%= simple_form_for @user, url: registration_path(@user), method: :patch, html: {class: "form-horizontal"} do |f| %>
+      <%= f.input :next_path, :as => :hidden, :input_html => { :value => hi_account_index_path } %>
+
+      <%= f.simple_fields_for :friends, f.object.friends.new do |p| %>
+        <%= render 'friend', p: p %>
+        <div class="links">
+          <%= link_to_add_association 'Add Friend', f, :friends, class: "btn btn-primary"%>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <a href="#" class="btn btn-default">back</a>
+          <button type="submit" class="btn btn-info pull-right">Next</button>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
