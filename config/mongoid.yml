@@ -145,10 +145,6 @@ test:
 production:
   clients:
     default:
-     # The standard MongoDB connection URI allows for easy
-     # replica set connection setup.
-     # Use environment variables or a config file to keep your
-     credentials safe e.g.
      uri: <%= ENV['MONGODB_URI'] %>.
      options:
        # The default timeout is 5, which is the time in seconds
