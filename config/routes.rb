@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see
   # http://guides.rubyonrails.org/routing.html
 
-  resources :registration, only: [:index] do
+  resources :registration, only: [:index, :update] do
     get 'phone-number', as: :phonenumber, on: :collection
     post 'process_phone_number', as: :process_phone_number, on: :collection
 

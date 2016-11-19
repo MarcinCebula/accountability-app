@@ -40,6 +40,12 @@ class User
   # field :locked_at,       type: Time
 
 
+
+
+  field :name, type: String
+  field :starting_weight, type: Integer
+  field :target_weight, type: Integer
+
   before_validation do |rec|
     rec.phone = rec.phone.parameterize.gsub('-', '')
     if rec.phone.length == 11
