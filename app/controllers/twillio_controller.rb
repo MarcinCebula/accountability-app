@@ -25,9 +25,11 @@ class TwillioController < ApplicationController
                                )
 
       User.where(phone: params['From'][-2..-1]).first.friends.each do |friend|
-        from: '+13472692547',
-        to: "+1#{frined.phone}",
-        body: "You friend didn't go to the gym 2 times. inform him"
+        @twillio.messages.create(
+                                 from: '+13472692547',
+                                 to: "+1#{frined.phone}",
+                                 body: "You friend didn't go to the gym 2 times. inform him"
+                                 )
       end
     end
   end
