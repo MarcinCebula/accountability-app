@@ -19,8 +19,9 @@ gem 'adminlte-rails'
 gem 'simple_form'
 
 
-gem 'twilio-ruby'
+gem 'twilio-ruby', '~> 4.11.1'
 
+gem 'pry'
 
 group :development, :test do
   gem 'byebug', platform: :mri
