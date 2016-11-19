@@ -22,11 +22,11 @@ class RegistrationController < ApplicationController
           @twillio.messages.create(
                                    from: '+13472692547',
                                    to: "+1#{@user.phone}",
-                                   body: "Hi #{@user.name}. Thanks for joining #{APP_NAME}. You password is: '#{generated_password}'"
+                                   body: "Hi #{@user.name}. Thanks for joining #{APP_NAME}. Lets get Fit!"
                                    )
           end
           sign_in(:user, @user)
-          redirect_to goals_registration_index_path
+          redirect_to schedule_registration_index_path
 
 
         }
