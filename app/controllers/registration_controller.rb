@@ -9,12 +9,14 @@ class RegistrationController < ApplicationController
       if @user.save
 
         format.html {
+          if REAL
           @twillio = Twilio::REST::Client.new
           @twillio.messages.create(
                                    from: '+13472692547',
                                    to: "+1#{@user.phone}",
                                    body: "Hi #{@user.name}. Thanks for joining #{APP_NAME}. You password is: '#{generated_password}'"
                                    )
+          end
           sign_in(:user, @user)
           redirect_to goals_registration_index_path
 
@@ -22,12 +24,14 @@ class RegistrationController < ApplicationController
         }
       else
         format.html {
-          @twillio = Twilio::REST::Client.new
-          @twillio.messages.create(
-                                   from: '+13472692547',
-                                   to: "+1#{@user.phone}",
-                                   body: "You already have an account on #{APP_NAME}. Please login #{new_user_session_url}"
-                                   )
+          if REAL
+            @twillio = Twilio::REST::Client.new
+            @twillio.messages.create(
+                                     from: '+13472692547',
+                                     to: "+1#{@user.phone}",
+                                     body: "You already have an account on #{APP_NAME}. Please login #{new_user_session_url}"
+                                     )
+          end
 
 
 

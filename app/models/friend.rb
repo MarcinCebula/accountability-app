@@ -14,12 +14,13 @@ class Friend
   end
 
   after_save do |friend|
-    @twillio = Twilio::REST::Client.new
-    @twillio.messages.create(
-                             from: '+13472692547',
-                             to: "+1#{friend.phone}",
-                             body: "#{friend.user.name} added you to #{APP_NAME} to be notified of his/her progress"
-                             )
-
+    if REAL
+      @twillio = Twilio::REST::Client.new
+      @twillio.messages.create(
+                               from: '+13472692547',
+                               to: "+1#{friend.phone}",
+                               body: "#{friend.user.name} added you to #{APP_NAME} to be notified of his/her progress"
+                               )
+    end
   end
 end
