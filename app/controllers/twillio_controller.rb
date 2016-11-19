@@ -10,7 +10,7 @@ class TwillioController < ApplicationController
                                body: 'Good Job'
                                )
     end
-    if params['Body'].downcase.include?('noo')
+    if params['Body'].downcase.include?('nop')
       @twillio.messages.create(
                                from: '+13472692547',
                                to: params['From'],
