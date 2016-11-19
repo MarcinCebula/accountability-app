@@ -11,9 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require bootstrap
+ * require bootstrap
  *= require font-awesome
  *= require ionicons
- *= require admin-lte
+ * require admin-lte
  *= require_self
  */

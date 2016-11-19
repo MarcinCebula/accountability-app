@@ -1,4 +1,12 @@
 class RegistrationController < ApplicationController
+  def intro
+   end
+  def onboard1
+    end
+  def onboard2
+    end
+  def onboard3
+    end
   def phone_number
     @user = User.new
   end
