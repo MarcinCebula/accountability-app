@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post 'process_phone_number', as: :process_phone_number, on: :collection
 
     get 'goals', as: :goals, on: :collection
-    get 'schedule', as: :shedule, on: :collection`
+    get 'schedule', as: :shedule, on: :collection
   end
 
   resources :account, only: [] do
