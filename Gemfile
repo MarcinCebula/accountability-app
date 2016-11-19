@@ -15,6 +15,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'mongoid'
 
+gem 'adminlte-rails'
+
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
