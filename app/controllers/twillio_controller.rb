@@ -3,21 +3,21 @@ class TwillioController < ApplicationController
 
   def sms
     @twillio = Twilio::REST::Client.new
-    if params['Body'].downcase.includes?('yes')
+    if params['Body'].downcase.include?('yes')
       @twillio.messages.create(
                                from: '+13472692547',
                                to: params['From'],
                                body: 'Good Job'
                                )
     end
-    if params['Body'].downcase.includes?('noo')
+    if params['Body'].downcase.include?('nop')
       @twillio.messages.create(
                                from: '+13472692547',
                                to: params['From'],
                                body: 'Please Remember to go on Friday at 6pm'
                                )
     end
-    if params['Body'].downcase.includes?('no')
+    if params['Body'].downcase.include?('no')
       @twillio.messages.create(
                                from: '+13472692547',
                                to: params['From'],
@@ -25,9 +25,11 @@ class TwillioController < ApplicationController
                                )
 
       User.where(phone: params['From'][-2..-1]).first.friends.each do |friend|
-        from: '+13472692547',
-        to: "+1#{frined.phone}",
-        body: "You friend didn't go to the gym 2 times. inform him"
+        @twillio.messages.create(
+                                 from: '+13472692547',
+                                 to: "+1#{friend.phone}",
+                                 body: "You friend didn't go to the gym 2 times. inform him"
+                                 )
       end
     end
   end
