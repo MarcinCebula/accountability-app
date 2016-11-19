@@ -68,7 +68,6 @@ class RegistrationController < ApplicationController
       if @user.update(user_params)
         format.html {
           flash.now['error'] =  "Thanks for setting Goals!"
-          binding.pry
           redirect_to params[:user][:next_path]
         }
       else
