@@ -9,6 +9,11 @@ class User
   index({ phone: 1 } , { unique: true })
 
 
+
+  has_many :friends
+  accepts_nested_attributes_for :friends, reject_if: :all_blank, allow_destroy: true
+
+
   ## Database authenticatable
   field :phone,              type: String, default: ""
   # field :email,              type: String, default: ""
@@ -45,7 +50,13 @@ class User
   field :name, type: String
   field :starting_weight, type: Integer
   field :target_weight, type: Integer
+
+
+  field :schedule, type: Array, default: []
   field :default_exercise_time, type: Time
+
+  WEEK_DAYS =  ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"]
+
 
   before_validation do |rec|
     rec.phone = rec.phone.parameterize.gsub('-', '')

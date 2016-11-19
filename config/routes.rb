@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     get 'goals', as: :goals, on: :collection
     get 'schedule', as: :shedule, on: :collection
+    get 'friends', as: :firends, on: :collection
   end
 
   resources :account, only: [] do

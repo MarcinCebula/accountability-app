@@ -15,5 +15,8 @@
  *= require font-awesome
  *= require ionicons
  *= require admin-lte
+ *= require iCheck/all
+ *= require datatables/dataTables.bootstrap
+ *= jquery.timepicker
  *= require_self
  */

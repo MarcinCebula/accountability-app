@@ -18,16 +18,14 @@
     <!-- form start -->
     <%= simple_form_for :user, url: registration_path(@user), method: :patch, html: {class: "form-horizontal"} do |f| %>
 
+      <%= f.input :next_path, :as => :hidden, :input_html => { :value => firends_registration_index_path } %>
+
       <div class="box-body">
         <div class="col-xs-12">
 
           <ul class="nav nav-stacked">
             <li>
-              <% ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
-                <div><%= day %>
-                  <input class="" id="user_schedule_day" name="user[schedule][day]" type="checkbox" value="0">
-                </div>
-              <% end %>
+              <%= f.input :schedule, as: :check_boxes, collection: User::WEEK_DAYS, required: false %>
             </li>
           </ul>
           <hr>
@@ -53,6 +51,7 @@
 <% content_for :javascript do %>
   <script>
    $(function(){
-     $('.time-picker').timepicker();
+     $('.timepicker').timepicker();
+   })
   </script>
 <% end %>
