@@ -18,6 +18,8 @@ gem 'mongoid'
 gem 'adminlte-rails'
 gem 'simple_form'
 
+gem 'devise'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'twilio-ruby', '~> 4.11.1'
 
