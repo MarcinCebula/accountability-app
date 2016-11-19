@@ -1,0 +1,54 @@
+@import 'variables';
+
+body {
+  background-color: $background-color !important;
+}
+
+
+.center {
+  text-align: center;
+}
+
+.go-button {
+  margin-top: 75px;
+  background-color: $our-blue;
+  color: white;
+  width: 30vw;
+  font-size: -webkit-xxx-large;
+  border-radius: 5vw;
+  border: none;
+}
+
+.go-button:focus {
+  outline: none;
+}
+
+.spacer {
+  margin-top: 250px;
+}
+
+.hashtag {
+  font-size: 7vw !important;
+  color: $our-blue;
+}
+
+.phone-input {
+  width: 70vw;
+  margin-left: 1vw;
+  height: 5vw;
+  border-width: 0 0 2px 0;
+  border-bottom-color: $our-blue;
+  background-color: $background-color;
+  color: white;
+  font-size: 6vw;;
+}
+
+.phone-input:focus {
+  outline: none;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
