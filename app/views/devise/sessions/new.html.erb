@@ -1,15 +1,50 @@
-<h2>Log in</h2>
+<div style="margin-top: 150px;"></div>
+<div class="col-xs-12">
+  <section class="content-header">
+    <h1>
+      Log In<br>
+      <small>Fill information to login</small>
+    </h1>
+    <br>
+  </section>
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :phone, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+<div class="col-xs-12">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Goals</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+      <div class="box-body">
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Phone</label>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+          <div class="col-sm-4">
+            <%= f.input :phone, input_html: { class: 'form-control' }, wrapper: false, label: false, required: true %>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+
+          <div class="col-sm-4">
+            <%= f.input :password, input_html: { class: 'form-control' }, wrapper: false, label: false, required: true %>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <a href="<%= new_user_session_url %>" class="btn btn-default">Sign In</a>
+        <button type="submit" class="btn btn-info pull-right">Next</button>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+
 
 <%= render "devise/shared/links" %>

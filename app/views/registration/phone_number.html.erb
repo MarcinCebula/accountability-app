@@ -30,6 +30,7 @@
       </div>
       <!-- /.box-body -->
       <div class="box-footer">
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'btn btn-default') %>
         <a href="<%= new_user_session_url %>" class="btn btn-default">Sign In</a>
         <button type="submit" class="btn btn-info pull-right">Next</button>
       </div>
