@@ -16,7 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'mongoid'
 
 gem 'adminlte-rails'
-
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
