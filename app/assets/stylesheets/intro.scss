@@ -1,0 +1,58 @@
+@import 'variables';
+.main-logo{
+  text-align: center;
+}
+
+.flex-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.flex-center {
+  max-width: 50%;
+}
+
+.slogan {
+  color: #FFF;
+  letter-spacing: 0.7px;
+  font-weight: 800;
+}
+
+.onboard-icon {
+  width: 50%;
+}
+
+.center {
+  text-align: center;
+}
+
+.slogan-distance {
+  margin-top: 90px;
+}
+
+.hashtag-text {
+  font-size: 40px;
+}
+
+.small-text {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.phone-field {
+  height: 25px;
+  background: none;
+  border-width: 0 0 4px 0;
+  width: 50vw;
+  margin-left: 8px;
+  font-size: 30px;
+  color: $phone;
+}
+
+.align-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

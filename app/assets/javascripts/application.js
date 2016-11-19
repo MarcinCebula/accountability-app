@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require cocoon
 //= require turbolinks
-//= require bootstrap.min
-//= require admin-lte
+// require bootstrap.min
+// require admin-lte
+// require bootstrap.min
+// require admin-lte
 //= jquery.timepicker
 //= require_tree .
