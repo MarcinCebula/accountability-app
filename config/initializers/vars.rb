@@ -1,2 +1,2 @@
 APP_NAME = "APP_NAME"
-REAL = false
+REAL = true
