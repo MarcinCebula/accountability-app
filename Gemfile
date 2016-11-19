@@ -18,6 +18,10 @@ gem 'mongoid'
 gem 'adminlte-rails'
 gem 'simple_form'
 
+
+gem 'twilio-ruby'
+
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
