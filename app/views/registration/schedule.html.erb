@@ -17,21 +17,26 @@
     <!-- /.box-header -->
     <!-- form start -->
     <%= simple_form_for :user, url: registration_path(@user), method: :patch, html: {class: "form-horizontal"} do |f| %>
+
       <div class="box-body">
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Starting Weight</label>
+        <div class="col-xs-12">
 
-          <div class="col-sm-4">
-            <%= f.input :starting_weight,  as: :integer, placeholder: '', input_html: { class: 'form-control' }, wrapper: false, label: false, required: true %>
-
-          </div>
+          <ul class="nav nav-stacked">
+            <li>
+              <% ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+                <div><%= day %>
+                  <input class="" id="user_schedule_day" name="user[schedule][day]" type="checkbox" value="0">
+                </div>
+              <% end %>
+            </li>
+          </ul>
+          <hr>
         </div>
 
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Target Weight</label>
-
-          <div class="col-sm-4">
-            <%= f.input :starting_weight,  as: :integer, placeholder: '', input_html: { class: 'form-control' }, wrapper: false, label: false, required: true %>
+          <label for="inputPassword3" class="col-sm-2 control-label">Exercise Time</label>
+          <div class="col-xs-6">
+            <%= f.input :default_exercise_time,  as: :string, placeholder: '', input_html: { class: 'form-control timepicker' }, wrapper: false, label: false, required: true %>
 
           </div>
         </div>
@@ -44,3 +49,10 @@
     <% end %>
   </div>
 </div>
+
+<% content_for :javascript do %>
+  <script>
+   $(function(){
+     $('.time-picker').timepicker();
+  </script>
+<% end %>

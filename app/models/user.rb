@@ -45,6 +45,7 @@ class User
   field :name, type: String
   field :starting_weight, type: Integer
   field :target_weight, type: Integer
+  field :default_exercise_time, type: Time
 
   before_validation do |rec|
     rec.phone = rec.phone.parameterize.gsub('-', '')
