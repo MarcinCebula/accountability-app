@@ -1,2 +1,2 @@
-APP_NAME = "Accountability"
+APP_NAME = "OnUs"
 REAL = true
